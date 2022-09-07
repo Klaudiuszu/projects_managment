@@ -1,0 +1,42 @@
+.app__Login {
+
+    .container {
+        height: 200vh;
+        background-image: url(../../assets/background.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .app__Login-card {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 4rem;
+        background: var(--color-4);
+        opacity: .3;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: 0.4s;
+    }
+
+    .app__Login-wrapper {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.modal-button {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+
+    transform: translate(-50%, 0);
+}

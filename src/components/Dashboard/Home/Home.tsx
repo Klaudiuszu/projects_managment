@@ -2,12 +2,12 @@ import React from "react";
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 
-function Login() {
+function Home() {
 
     return (
-        <div>dumba1</div>
+        <div>dupa2</div>
     )
 
 }
 
-export default Login;
+export default Home;
