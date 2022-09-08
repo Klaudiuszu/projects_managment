@@ -1,35 +1,186 @@
+.container {
+    height: 200vh;
+    background-image: url(../../assets/background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .app__Login {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background: rgba(#333, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s;
 
-    .container {
-        height: 200vh;
-        background-image: url(../../assets/background.jpg);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    .app__Login-card {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 4rem;
-        background: var(--color-4);
-        opacity: .3;
+    .app__Login-card-container {
+        position: relative;
 
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: 0.4s;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: flex-start;
+
+
+        width: 40rem;
+        height: 25rem;
+        border-radius: 2rem;
+
+        background-color: var(--bg-primary);
+
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+
+        #app__Login-exit {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+        }
     }
 
-    .app__Login-wrapper {
-        margin: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+    .app__Login-container-left {
+
+        position: relative;
+        display: flex;
+        flex: 0 0 50%;
+        flex-direction: column;
+
+        margin: 2rem;
+
+
+        .input-block {
+            display: flex;
+            flex-direction: column;
+            padding: 10px 10px 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+
+            &:focus-within {
+                border-color: var(--color-2);
+            
+                .input-label {
+                  color: var(--accent);
+                }
+              }
+        }
+
+        .input-label {
+            font-size: .8rem;
+            text-transform: uppercase;
+            font-family: "Nunito", sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.7px;
+            color: var(--shadow);
+            transition: 0.3s;
+            margin-bottom: .2rem;
+
+            
+
+        }
+
+        input {
+            outline: 0;
+            border: 0;
+            padding: 4px 0 0;
+            font-size: 14px;
+            font-family: "Nunito", sans-serif;
+
+            &::placeholder {
+                color: var(--shadow);
+                opacity: 1;
+            }
+
+            
+        }
+
+        h1 {
+            font-weight: 600;
+            letter-spacing: .1rem;
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-bottom: .8rem;
+        }
+
+        p { 
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: var(--color-1);
+        }
+
+    }
+
+    .Left-question-Login {
+        display: flex;
+        justify-content: space-between;
+
+        a { 
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: var(--color-1);
+            font-size: .9rem;
+
+            transition: all .1s ease-in-out;
+
+            &:hover {
+                color: var(--color-2);
+            }
+        }
+
+        button {
+            color: var(--bg-primary);
+            background-color: var(--accent);
+            border: none;
+            width: 4rem;
+            height: 2.2rem;
+            border-radius: .3rem;
+            transition: all .3s ease-in-out;
+            cursor: pointer;
+
+            &:hover {
+                background-color: var(--color-2);
+            }
+        }
+    }
+    .forgot-password {
+        display: flex;
+        flex-direction: column;
+
+        margin-top: 2rem;
+
+        p {
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: var(--color-1);
+            font-size: .9rem;
+        }
+
+        a {
+            color: var(--primary);
+        }
+        
+    }
+
+    .app__Login-container-right {
+
+        display: flex;
+        flex: 0 0 40%;
+        
+        height: 100%;
+        width: 10rem;
+
+        img {
+            transform: scale(1);
+            width: 100%;
+            border-radius: 0 2rem 2rem 0;
+        }
     }
 }
 
