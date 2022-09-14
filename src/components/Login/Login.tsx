@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 import { images } from "../../utils";
 
@@ -8,12 +9,53 @@ import "./Login.scss";
 
 function Login() {
   const [btnState, setBtnState] = useState(false);
+  const [errorMessages, setErrorMessages] = useState({});
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+    const navigate = useNavigate();
+
+  const database = [
+    {
+      username: "user1",
+      password: "pass1",
+    },
+    {
+      username: "user2",
+      password: "pass2",
+    },
+  ];
+
+  const errors = {
+    uname: "invalid username",
+    pass: "invalid password",
+  };
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+
+    let { uname, pass } = document.forms[0];
+
+    const userData = database.find((user) => user.username === uname.value);
+
+    if (userData) {
+      if (userData.password !== pass.value) {
+        setErrorMessages({ name: "pass", messege: errors.pass });
+      } else {
+        setIsSubmitted(true);
+      }
+    } else {
+      setErrorMessages({ name: "uname", message: errors.uname });
+    }
+  };
 
   function handleClick() {
     setBtnState((btnState) => !btnState);
   }
 
+
   let toggleCardContainer = btnState ? " app__Login-card-container" : null;
+
+
 
   return (
     <>
@@ -24,7 +66,6 @@ function Login() {
           height: btnState ? "100vh" : "60px",
         }}
       >
-        
         <div className={`${toggleCardContainer}`}>
           <div
             className="app__Login-container-left"
@@ -32,22 +73,33 @@ function Login() {
           >
             <h1>Welcome</h1>
             <p>Start modify your products here!</p>
-            <div className="input-block">
-              <label className="input-label">Email</label>
-              <input type="email" name="email" id="email" placeholder="Email" />
-            </div>
-            <div className="input-block">
-              <label className="input-label">Password</label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Password"
-              />
-            </div>
+            <form onSubmit={handleSubmit}>
+              <div className="input-block">
+                <label className="input-label">Email</label>
+                <input
+                  type="text"
+                  name="uname"
+                  id="email"
+                  placeholder="Email"
+                  required
+                />
+                
+              </div>
+              <div className="input-block">
+                <label className="input-label">Password</label>
+                <input
+                  type="password"
+                  name="pass"
+                  id="password"
+                  placeholder="Password"
+                />
+              </div>
+            </form>
             <div className="Left-question-Login">
               <a href="">forgot your password?</a>
-              <button>Login</button>
+              <button
+                onClick={() => navigate("/Home")}
+              >Login</button>
             </div>
             <div className="forgot-password">
               <p>Don't have an account?</p>
@@ -56,7 +108,7 @@ function Login() {
           </div>
 
           <div className="app__Login-container-right">
-           <img src={images.funny} alt="" />
+            <img src={images.funny} alt="" />
           </div>
 
           <input
@@ -67,7 +119,12 @@ function Login() {
             src={images.close}
           />
         </div>
-        <button type="button" className="modal-button" onClick={handleClick}>
+        <button
+          type="button"
+          className="modal-button"
+          onClick={handleClick}
+          style={{ visibility: btnState ? "hidden" : "visible" }}
+        >
           Click here to login
         </button>
       </div>
