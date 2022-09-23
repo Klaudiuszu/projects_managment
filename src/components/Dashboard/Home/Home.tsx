@@ -58,7 +58,7 @@ function Home() {
       body: formData
     });
 
-    console.log(name)
+    console.log(productList)
 
 
   // add product end
@@ -85,6 +85,7 @@ function Home() {
         <Pagination.Item active>{Math.round(offset / 10 + 1)}</Pagination.Item>
         <Pagination.Next onClick={handleNext} />
       </Pagination>
+      
       <div className="app__home-add_field">
         <input
           type="text"
