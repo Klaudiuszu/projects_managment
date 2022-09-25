@@ -13,7 +13,6 @@ type LoginFormProps = {
     handlePassValue: any;
     isValid: any;
     handleSubmit: any;
-    
 };
 
 const LoginForm: React.FunctionComponent<LoginFormProps> = (props) => (
@@ -32,19 +31,20 @@ const LoginForm: React.FunctionComponent<LoginFormProps> = (props) => (
       <br/>
       <br/>
       <TextField 
-      value={props.passValue}
+        value={props.passValue}
         id="password"
         label="password"
         variant="standard"
         onChange={props.handlePassValue}
         error={!props.isValid.password}
       />
-      <div className="app__LoginForm-error-name">
-        {!props.isValid.name && "only latin letters!"}
-      </div>
+      { !props.isValid.name && <div className="app__LoginForm-error-name">
+        only latin letters!
+      </div>}
+      { !props.isValid.password && 
       <div className="app__LoginForm-error-password">
-        {!props.isValid.password && "need valid A-Z and minimun one of 0-9 letter"}
-      </div>
+        "need valid A-Z and minimun one of 0-9 letter"
+      </div> }
       <Button 
         variant="outlined" 
         onClick={() => props.handleSubmit()}

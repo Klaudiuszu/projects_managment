@@ -3,7 +3,7 @@ import "./App.css";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import Home from "./components/Dashboard/Home/Home";
+import HomeContainer from "./components/Dashboard/Home/HomeContainer";
 import LoginFormContainer from "./components/Login/components/LoginFormContainer";
 
 
@@ -14,7 +14,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<LoginFormContainer />} />
-        <Route path="/Home" element={<Home />} />
+        <Route path="/Home" element={<HomeContainer />} />
       </Routes>
     </Router>
   );
