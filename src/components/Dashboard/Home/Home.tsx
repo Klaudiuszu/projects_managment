@@ -7,12 +7,22 @@ type HomeProps = {
   handlePrev: any,
   offset: number,
   handleNext: any,
+  searchObject: any,
 };
+
 
 const Home: React.FunctionComponent<HomeProps> = (props) => (
   <div className="app__Home">
     <div className="app__Home-wrapper">
-      {props.data.map((item: any) => (
+      {props.data.filter((val: any) => {
+        if(props.searchObject.title == "") {
+          
+          return val
+        } else if(val.category.name.toLowerCase().includes(props.searchObject.title.toLowerCase())) {
+          return val.title
+        }
+      })
+      .map((item: any) => (
         <div className="app__Home-card" key={`item-card-${item.id}`}>
           <div className="app__Home-content">
             <div className="app__Home-image">

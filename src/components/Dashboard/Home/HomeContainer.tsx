@@ -2,34 +2,43 @@ import Home from "./Home";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { off } from "process";
-import HomePostForm from "./HomePostForm";
+import HomeSearchForm from "./HomeSearchForm";
 
 const HomeContainer = () => {
   const [data, setData] = useState<any>([]);
+  const [filterData, setFilterData] = useState<any>([]);
   const [limit, setLimit] = useState(10);
   const [offset, setOffset] = useState(0);
 
   const [title, setTitle] = useState("");
+  const [price, setPrice] = useState("");
+  
+  const [searchObject, setSearchObject] = useState<any>({
+    title: "",
+    price: "",
+  });
 
-  const handleValue = (e:any) => {
+
+
+
+  const handleTitleValue = (e:any) => {
     const newValue = e.target.value;
-    console.log("new value:" +  newValue)
+    
+    setSearchObject({...searchObject, title: newValue});
+
     setTitle(newValue);
 }
-const handleSubmit = () => {
 
-  axios.post('https://api.escuelajs.co/api/v1/products', {
-        "title": "string",
-        "price": 100,
-        "description": "string",
-        "categoryId": 1,
-        "images": [
-          "string"
-        ]
-      })
-      .then(function (response) {
-        console.log(response);
-      })
+const handlePriceValue = (e:any) => {
+  const newValue = e.target.value;
+  
+  setSearchObject({...searchObject, price: newValue});
+
+  setPrice(newValue);
+}
+
+const handleSubmit = () => {
+  console.log(searchObject)  
 }
 
 
@@ -62,8 +71,6 @@ const handleSubmit = () => {
       });
   },[limit, offset]);
 
-  console.log(data)
-
   return (
     <>
       <Home 
@@ -71,11 +78,14 @@ const handleSubmit = () => {
         handlePrev={handlePrev}
         handleNext={handleNext}
         offset={offset}
+        searchObject={searchObject}
         />
-      <HomePostForm 
-        title={handleValue}
+      <HomeSearchForm 
+        titleValue={title}
+        priceValue={price}
         handleSubmit={handleSubmit}
-        handleValue={handleValue}
+        handleTitleValue={handleTitleValue}
+        handlePriceValue={handlePriceValue}
       />
     </>
   );

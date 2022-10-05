@@ -4,28 +4,37 @@ import { type } from "@testing-library/user-event/dist/type";
 import "./Home.scss";
 
 type HomeFormProps = {
-  title: any;
+  titleValue: any;
+  priceValue: any;
   handleSubmit: any;
-  handleValue: any;
+  handleTitleValue: any;
+  handlePriceValue: any;
 };
 
-const HomePostForm: React.FunctionComponent<HomeFormProps> = (props) => (
+const HomeSearchForm: React.FunctionComponent<HomeFormProps> = (props) => (
   <div className="app__Home-textField">
     <TextField
-        value={props.title}
+        value={props.titleValue}
         id="title"
         label="title"
         variant="standard"
-        onChange={props.handleValue}
+        onChange={props.handleTitleValue}
+    />
+    <TextField
+        value={props.priceValue}
+        id="title"
+        label="title"
+        variant="standard"
+        onChange={props.handlePriceValue}
     />
     <Button
       variant="outlined"
       onClick={() => props.handleSubmit()}
       className="app__LoginForm-button"
     >
-      send
+      search
     </Button>
   </div>
 );
 
-export default HomePostForm;
+export default HomeSearchForm;
