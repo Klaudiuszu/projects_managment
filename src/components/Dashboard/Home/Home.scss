@@ -1,3 +1,7 @@
+.app__container {
+    display: flex;
+}
+
 .app__Home {
 
     display: flex;
@@ -74,22 +78,79 @@
 }
 
 .app__Home-textField {
-    position: absolute;
+    position: sticky;
+    top: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    left: 50%;
-    transform: translate(-50%, 0);
-
+    height: 100vh;
     background-color: var(--title-inverse);
-    width: 20rem;
-    height: 10rem;
-    border-radius: 1rem;
+    min-width: 20rem;
+    border-radius: 0 1rem 1rem 0;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    margin-bottom: 2rem;
+    transition: all .3s ease-in-out;
 
     button {
         margin: 1rem;
+        top: 6rem;
+        left: 1rem;
     }
+}
+
+.app__Home-textField-toggle {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--title-inverse);
+    width: 4rem;
+    border-radius: 0 1rem 1rem 0;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    transition: all .3s ease-in-out;
+
+
+
+    button {
+        margin: 1rem;
+        top: 5rem;
+        right: 2rem;
+    }
+}
+
+.app__search-value {
+    display: flex;
+    top: 5rem;
+    left: 2rem;
+}
+
+.app__close-bg {
+    position: absolute;
+    right: 0;
+    width: 4rem;
+    height: 4rem;
+    background-color: var(--color-4);
+    border-radius: 0 1rem;
+    cursor: pointer;
+    color: var(--title-inverse);
+    transition: all .3s ease-in-out;
+
+    &:hover {
+        background-color: var(--color-2);
+    }
+        
+    .app__close-button {
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+.app__search-visibility {
+    visibility: hidden;
 }

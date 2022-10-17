@@ -1,3 +1,24 @@
 .App {
   text-align: center;
+
 }
+
+.app__button {
+  border:none;
+  font-weight: 600;
+  background-color: var( --color-8);
+  width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  color: var( --bg-primary);
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin: 5px;
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+  }
+
+  .app__button:hover {
+    background-color: var(--bg-primary);
+    color: var(--color-8);
+  }

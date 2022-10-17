@@ -1,28 +1,19 @@
 import { type } from "os";
 import "./Home.scss";
-import Pagination from "react-bootstrap/Pagination";
+//import Pagination from "react-bootstrap/Pagination";
+import  Pagination  from '../Pagination/Pagination';
+import Stack from '@mui/material/Stack';
 
 type HomeProps = {
-  data: any;
-  handlePrev: any,
+  filteredData: any;
   offset: number,
-  handleNext: any,
   searchObject: any,
 };
-
 
 const Home: React.FunctionComponent<HomeProps> = (props) => (
   <div className="app__Home">
     <div className="app__Home-wrapper">
-      {props.data.filter((val: any) => {
-        if(props.searchObject.title == "") {
-          
-          return val
-        } else if(val.category.name.toLowerCase().includes(props.searchObject.title.toLowerCase())) {
-          return val.title
-        }
-      })
-      .map((item: any) => (
+      {props.filteredData.map((item: any) => (
         <div className="app__Home-card" key={`item-card-${item.id}`}>
           <div className="app__Home-content">
             <div className="app__Home-image">
@@ -36,11 +27,6 @@ const Home: React.FunctionComponent<HomeProps> = (props) => (
         </div>
       ))}
     </div>
-    <Pagination className="app-row">
-        <Pagination.Prev onClick={props.handlePrev} />
-        <Pagination.Item active>{Math.round(props.offset / 10 + 1)}</Pagination.Item>
-        <Pagination.Next onClick={props.handleNext} />
-      </Pagination>
   </div>
 );
 
