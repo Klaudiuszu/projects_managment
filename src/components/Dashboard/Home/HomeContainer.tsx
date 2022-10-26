@@ -53,7 +53,10 @@ const HomeContainer = () => {
 
   //pagination start
 
+  const rowCount = 50;
+
   const handleNext = () => {
+    if(offset + limit > rowCount) return;
     setOffset(offset + limit);
   };
 
@@ -61,8 +64,6 @@ const HomeContainer = () => {
     if (offset === 0) return;
     setOffset(offset - limit);
   };
-
-  console.log(data);
 
   //pagination end
 
@@ -74,6 +75,7 @@ const HomeContainer = () => {
     setToggle(!toggle);
   }
 
+  console.log(data)
 
   useEffect(() => {
     axios
@@ -101,17 +103,18 @@ const HomeContainer = () => {
           handlePriceValue={handlePriceValue}
           visibility={visibilityElement}
           toggle={toggle}
-        />
+          />
         <div className="app__home-wrapper">
         <Home
           filteredData={filteredData}
           offset={offset}
           searchObject={searchObject}
-        />
+          />
         <Pagination
           handleNext={handleNext}
           handlePrev={handlePrev}
           offset={offset}
+          rowCount={rowCount}
         />
       </div>
         </div>

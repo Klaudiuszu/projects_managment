@@ -5,6 +5,7 @@ type PaginationProps = {
   offset: number;
   handleNext: any;
   handlePrev: any;
+  rowCount: number;
 };
 
 const Pagination: React.FunctionComponent<PaginationProps> = (props) => (

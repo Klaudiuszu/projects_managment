@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import { type } from "@testing-library/user-event/dist/type";
 import { BsXLg } from "react-icons/bs";
 import "./Home.scss";
+import PostPrducts from "../PostProduct/PostProduct";
 
 type HomeFormProps = {
   titleValue: any;
@@ -25,7 +26,7 @@ const HomeSearchForm: React.FunctionComponent<HomeFormProps> = (props) => (
         className="app__search-value"
         value={props.titleValue}
         id="title"
-        label="title"
+        label="search by name"
         variant="standard"
         onChange={props.handleTitleValue}
       />
@@ -33,7 +34,7 @@ const HomeSearchForm: React.FunctionComponent<HomeFormProps> = (props) => (
         className="app__search-value"
         value={props.priceValue}
         id="title"
-        label="title"
+        label="search by price"
         variant="standard"
         onChange={props.handlePriceValue}
       />
@@ -46,10 +47,11 @@ const HomeSearchForm: React.FunctionComponent<HomeFormProps> = (props) => (
       </Button>
     </div>
     <div className="app__close-bg">
-      <BsXLg 
-        onClick={props.visibility} className="app__close-button" 
-      />
+      <BsXLg onClick={props.visibility} className="app__close-button" />
     </div>
+    <div className={props.toggle ? "" : "app__search-visibility"}>
+    </div>
+    <PostPrducts />
   </div>
 );
 

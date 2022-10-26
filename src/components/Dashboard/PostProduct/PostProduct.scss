@@ -1,0 +1,18 @@
+.app__Post {
+    position: absolute;
+    top: 25rem;
+    left: 2rem;
+}
+
+.app__post-button {
+    margin: 2rem;
+    color: var(--color-2);
+    border: .1rem solid var(--color-2);
+    transition: all .3s ease-in-out;
+
+    &:hover {
+        color: var(--color-2);
+        background-color: var(--accent);
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    }
+}

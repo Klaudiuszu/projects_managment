@@ -59,8 +59,7 @@ function Home() {
     });
 
     console.log(productList)
-
-
+    
   // add product end
 
   return (
