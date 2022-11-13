@@ -21,27 +21,28 @@ const HomeSearchForm: React.FunctionComponent<HomeFormProps> = (props) => (
       props.toggle ? "app__Home-textField" : "app__Home-textField-toggle"
     }
   >
-    <div className={props.toggle ? "" : "app__search-visibility"}>
+    <div className={props.toggle ? "app__field" : "app__search-visibility"}>
       <TextField
-        className="app__search-value"
         value={props.titleValue}
         id="title"
         label="search by name"
-        variant="standard"
+        variant="outlined"
         onChange={props.handleTitleValue}
       />
       <TextField
-        className="app__search-value"
         value={props.priceValue}
         id="title"
         label="search by price"
-        variant="standard"
+        variant="outlined"
         onChange={props.handlePriceValue}
       />
+      <br></br>
+      <br></br>
+      <br></br>
       <Button
         variant="outlined"
         onClick={() => props.handleSubmit()}
-        className="app__search-button"
+        className="modal-button"
       >
         search
       </Button>
@@ -50,8 +51,8 @@ const HomeSearchForm: React.FunctionComponent<HomeFormProps> = (props) => (
       <BsXLg onClick={props.visibility} className="app__close-button" />
     </div>
     <div className={props.toggle ? "" : "app__search-visibility"}>
-    </div>
     <PostPrducts />
+    </div>
   </div>
 );
 

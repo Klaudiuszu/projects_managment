@@ -14,16 +14,22 @@ type PostContainer = {
   handleSubmit: any;
   setDescription: any;
   setCategoryId: any;
+  optionSelected: any;
 };
 
 const PostContainer: React.FunctionComponent<PostContainer> = (props) => (
-  <div className="app__postContainer">
-    <FormControl fullWidth>
+  <div>
+    <br></br>
+    <br></br>
+    <FormControl fullWidth
+    className="app__field"
+    >
       <InputLabel id="demo-simple-select-label">Title</InputLabel>
       <Select 
         labelId="demo-simple-select-label"  
-        id="demo-simple-select">
-
+        id="demo-simple-select"
+        onChange={(e) => props.optionSelected(e.target.value)}
+        >
             <MenuItem value="Shoes">Shoes</MenuItem>
             <MenuItem value="Electronics">Electronics</MenuItem>
             <MenuItem value="Furniture">Furniture</MenuItem>
@@ -56,7 +62,10 @@ const PostContainer: React.FunctionComponent<PostContainer> = (props) => (
         type="number"
         onChange={(e) => props.setCategoryId(e.target.value)}
       />
-      <Button className="app__post-button" onClick={props.handleSubmit}>
+      <br></br>
+      <br></br>
+      <br></br>
+      <Button className="modal-button" onClick={props.handleSubmit}>
         SEND
       </Button>
     </FormControl>

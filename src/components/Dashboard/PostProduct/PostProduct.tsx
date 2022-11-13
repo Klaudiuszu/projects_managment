@@ -19,12 +19,12 @@ const PostPrducts = () => {
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
     const [categoryId, setCategoryId] = useState("");
-    
+    const [optionSelected, setOptionSelected] = useState("");    
     
     const handleSubmit = (e:any) => {
 
         e.preventDefault();
-        const postElement = {title, price, description, categoryId};
+        const postElement = {title, price, description, categoryId, optionSelected};
         
         fetch("https://api.escuelajs.co/api/v1/products", {
         method: 'POST',
@@ -34,19 +34,19 @@ const PostPrducts = () => {
     });    
 
     console.log(postElement)
-
 }
 
     return (
-        <div className="app__Post">
+        <>   
         <PostContainer 
             setTitle={setTitle}
             setPrice={setPrice}
             setDescription={setDescription}
             setCategoryId={setCategoryId}
             handleSubmit={handleSubmit}
+            optionSelected={setOptionSelected}
         />
-        </div>
+        </>
     )
 }
 

@@ -1,21 +1,24 @@
-.app__container {
-    display: flex;
-}
-
 .app__Home {
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    height: 100%;
+    
     .app__Home-wrapper {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-
+        max-width: 1000px;
+        position: absolute;
+        top: 0;
+        padding-left: 4rem;
+        top: 50%;
+        transform: translateY(-50%);
+        
         .app__Home-card {
             position: relative;
             width: 15rem;
@@ -25,11 +28,11 @@
             border-radius: 1rem;
             box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
             transition: all 1s ease-in-out;
-
-
+            
+            
             .app__Home-content {
-
-
+                
+                
                 .app__Home-info {
                     h1 {
                         font-weight: 600;
@@ -37,13 +40,13 @@
                         color: var(--accent);
                         margin-bottom: .5rem;
                     }
-
+                    
                     margin: .5rem;
                 }
-
+                
                 .app__Home-image {
-
-
+                    
+                    
                     img {
                         width: 100%;
                         border-radius: 1rem 1rem 0 0;
@@ -51,21 +54,21 @@
                 }
             }
         }
-
+        
     }
-
+    
     .app-row {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: row;
-
+        
         margin: 2rem 0;
-
+        
         width: 20rem;
         height: 2rem;
         border-radius: .4rem;
-
+        
         background: rgba(255, 255, 255, 0.25);
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         backdrop-filter: blur(4px);
@@ -73,13 +76,14 @@
         border-radius: 10px;
         border: 1px solid rgba(255, 255, 255, 0.18);
     }
-
-
+    
+    
 }
 
 .app__Home-textField {
     position: sticky;
     top: 0;
+    padding-bottom: 1rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -91,12 +95,6 @@
     border-radius: 0 1rem 1rem 0;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     transition: all .3s ease-in-out;
-
-    button {
-        margin: 1rem;
-        top: 6rem;
-        left: 1rem;
-    }
 }
 
 .app__Home-textField-toggle {
@@ -112,20 +110,8 @@
     border-radius: 0 1rem 1rem 0;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     transition: all .3s ease-in-out;
-
-
-
-    button {
-        margin: 1rem;
-        top: 5rem;
-        right: 2rem;
-    }
-}
-
-.app__search-value {
-    display: flex;
-    top: 5rem;
-    left: 2rem;
+    
+    
 }
 
 .app__close-bg {
@@ -138,11 +124,11 @@
     cursor: pointer;
     color: var(--title-inverse);
     transition: all .3s ease-in-out;
-
+    
     &:hover {
         background-color: var(--color-2);
     }
-        
+    
     .app__close-button {
         position: absolute;
         right: 1rem;
@@ -152,6 +138,39 @@
     }
 }
 
+.app__container {
+height: 100vh;
+
+}
+
 .app__search-visibility {
     visibility: hidden;
+}
+
+.app__post-wrapper {
+    background-color: red;
+}
+
+.app__field {
+    position: relative;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 900px ) {
+    .app__Home {
+        height: 100vh;
+
+
+        .app__Home-wrapper {
+            position: relative;
+            height: auto;
+            padding-left: 4rem;
+            height: 100%;
+        }
+
+        .app__Home-textField {
+        }
+    }
 }

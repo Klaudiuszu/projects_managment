@@ -6,11 +6,12 @@ import HomeSearchForm from "./HomeSearchForm";
 import Pagination from "../Pagination/Pagination";
 import Stack from "@mui/material/Stack";
 import { Next } from "react-bootstrap/esm/PageItem";
+import PostPrducts from "../PostProduct/PostProduct";
 
 const HomeContainer = () => {
   const [data, setData] = useState<any>([]);
   const [filteredData, setFilteredData] = useState<any>([]);
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(9);
   const [offset, setOffset] = useState(0);
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
