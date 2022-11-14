@@ -57,7 +57,7 @@ const HomeContainer = () => {
   const rowCount = 50;
 
   const handleNext = () => {
-    if(offset + limit > rowCount) return;
+    if (offset + limit > rowCount) return;
     setOffset(offset + limit);
   };
 
@@ -74,9 +74,9 @@ const HomeContainer = () => {
 
   const visibilityElement = () => {
     setToggle(!toggle);
-  }
+  };
 
-  console.log(data)
+  console.log(data);
 
   useEffect(() => {
     axios
@@ -94,32 +94,29 @@ const HomeContainer = () => {
   }, [offset]);
 
   return (
-    <>
-      <div className="app__container">
-        <HomeSearchForm
-          titleValue={title}
-          priceValue={price}
-          handleSubmit={handleSubmit}
-          handleTitleValue={handleTitleValue}
-          handlePriceValue={handlePriceValue}
-          visibility={visibilityElement}
-          toggle={toggle}
-          />
-        <div className="app__home-wrapper">
-        <Home
-          filteredData={filteredData}
-          offset={offset}
-          searchObject={searchObject}
-          />
-        <Pagination
-          handleNext={handleNext}
-          handlePrev={handlePrev}
-          offset={offset}
-          rowCount={rowCount}
-        />
-      </div>
-        </div>
-    </>
+    <div className="container">
+      <HomeSearchForm
+        titleValue={title}
+        priceValue={price}
+        handleSubmit={handleSubmit}
+        handleTitleValue={handleTitleValue}
+        handlePriceValue={handlePriceValue}
+        visibility={visibilityElement}
+        toggle={toggle}
+      />
+
+      <Home
+        filteredData={filteredData}
+        offset={offset}
+        searchObject={searchObject}
+      />
+      <Pagination
+        handleNext={handleNext}
+        handlePrev={handlePrev}
+        offset={offset}
+        rowCount={rowCount}
+      />
+    </div>
   );
 };
 

@@ -1,4 +1,4 @@
-import "./Pagination.scss";
+import "../Home/Home.scss";
 import React, { useEffect, useState } from "react";
 
 type PaginationProps = {
